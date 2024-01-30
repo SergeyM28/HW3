@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Рекрутинг</title>
+</head>
+<body>
+<table>
+    <h2>Приняты заявки от кандидатов:</h2>
+    <tr th:each="cv: ${CVs}" >
+        <td th:text="${cv.name}"></td>
+        <td th:text="${cv.experience}"></td>
+    </tr>
+</table>
+
+<h2>Введите данные кандидата</h2>
+<form action="/recruitment" method="post">
+    Имя: <input type="text" name="name"><br />
+    Опыт лет: <input type="number" step="any" name="experience"><br />
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>
